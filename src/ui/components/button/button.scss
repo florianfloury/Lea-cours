@@ -1,0 +1,174 @@
+@import "src/shared/styles/colors";
+@import "src/shared/styles/fonts";
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  font-size: $smallerText;
+  position: relative;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+
+  &.neutral {
+    color: $white;
+    background-color: $oldPrimary; // TODO color $primary
+    transition: background-color 0.3s ease-in-out;
+    box-shadow: 1px 1px 5px 0 $gray_300;
+
+    &:hover {
+      background-color: $oldPrimaryHover; // TODO color $primary_400
+    }
+
+    svg {
+      color: $white;
+    }
+
+    .button-loader {
+      border-top-color: $white;
+    }
+
+    &.edge {
+      color: $oldPrimary; // TODO color $primary
+      border: 1px solid $oldPrimary; // TODO color $primary
+      background-color: transparent;
+      box-shadow: none;
+
+      &:hover {
+        background-color: transparentize($oldPrimaryHover, 0.9); // TODO color $primary_100
+      }
+
+      svg {
+        color: $oldPrimary; // TODO color $primary
+      }
+
+      .button-loader {
+        border-top-color: $oldPrimary; // TODO color $primary
+      }
+    }
+  }
+
+  &.valid {
+    color: $white;
+    background-color: $green;
+    transition: background-color 0.3s ease-in-out;
+
+    &:hover {
+      background-color: $green_400;
+    }
+
+    svg {
+      color: $white;
+    }
+
+    .button-loader {
+      border-top-color: $white;
+    }
+
+    &.edge {
+      color: $green;
+      border: 1px solid $green;
+      background-color: transparent;
+      box-shadow: none;
+
+      &:hover {
+        background-color: $green_100;
+      }
+
+      svg {
+        color: $green;
+      }
+
+      .button-loader {
+        border-top-color: $green;
+      }
+    }
+  }
+
+  &.abort {
+    color: $white;
+    background-color: $red;
+    transition: background-color 0.3s ease-in-out;
+
+    &:hover {
+      background-color: $red_400;
+    }
+
+    svg {
+      color: $white;
+    }
+
+    .button-loader {
+      border-top-color: $white;
+    }
+
+    &.edge {
+      color: $red;
+      border: 1px solid $red;
+      background-color: transparent;
+      box-shadow: none;
+
+      &:hover {
+        background-color: $red_100;
+      }
+
+      svg {
+        color: $red;
+      }
+
+      .button-loader {
+        border-top-color: $red;
+      }
+    }
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &.is-loading {
+    color: $transparent !important;
+  }
+}
+
+.withLeftIcon {
+  padding-left: 6px;
+
+  svg {
+    height: 20px;
+  }
+
+  > span {
+    margin-left: 8px;
+  }
+}
+
+.button-loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 2px solid $gray_100;
+  border-top: 2px solid $primary;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}

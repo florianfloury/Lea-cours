@@ -1,0 +1,98 @@
+@import "src/shared/styles/colors";
+@import "src/shared/styles/fonts";
+
+.textInputWrapper {
+  padding-top: 24px;
+  position: relative;
+}
+
+.textInputNoLabel {
+  padding-top: 0;
+}
+
+.textInput {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  transition: border-color 0.3s ease-in-out;
+  cursor: text;
+  background-color: $white;
+  padding: 8px 12px;
+
+  > input, > textarea {
+    flex: 1;
+    border: none;
+    outline: none;
+    cursor: inherit; // override default cursor on input
+    resize: none;
+  }
+
+  &:hover {
+    border: 1px solid $gray_500;
+  }
+}
+
+.inputValueFocused {
+  border: 1px solid $primary;
+
+  &:hover {
+    border: 1px solid $primary;
+  }
+}
+
+.inputValueDisabled {
+  border: 1px solid $gray_200;
+  background-color: $gray_100;
+  cursor: not-allowed;
+
+  .textInput, input {
+    background-color: $gray_100;
+  }
+  &:hover {
+    border: 1px solid $gray_200;
+  }
+}
+
+.inputValueError {
+  border-color: $red;
+  border-width: 2px;
+
+  &:hover {
+    border-color: $red_300;
+    border-width: 2px;
+  }
+}
+
+.errorMessage {
+  display: flex;
+  align-items: center;
+  font-size: $smallestText;
+  margin-top: 4px;
+  height: 14px;
+
+  svg {
+    height: 14px
+  }
+  p {
+    margin-left: 4px;
+    color: $red;
+  }
+}
+
+.searchIcon {
+  height: 20px;
+}
+
+.label {
+  position: absolute;
+  font-size: $smallerText;
+  color: $gray_500;
+  transition: transform 0.3s ease-in-out, font-size 0.3s ease-in-out;
+}
+
+.labelOnTop {
+  transform: translate(-12px, -32px);
+  font-size: $smallestText;
+}

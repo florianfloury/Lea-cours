@@ -1,0 +1,29 @@
+@import "src/shared/styles/colors";
+@import "src/shared/styles/fonts";
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+  padding: 16px 32px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: $oldPrimary; // TODO color primary_500
+  transition: background 0.7s ease-in-out;
+  z-index: 10;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+  font-size: $text;
+  color: $white;
+  font-weight: 300;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
